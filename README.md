@@ -1,11 +1,14 @@
 # makers-row
 an epic parser
+
 #Pre-requisites
 - No installation required
 - python (any version will do)
+
 #How to run
 -run "python parse.py <inputfile>"
 example: python parse.py input.txt
+
 # sample input
 3
 New York Embroidery Studio,Novelty Pom Pom,Sherry Accessories
