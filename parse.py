@@ -1,6 +1,7 @@
 import fileinput
 import hashlib
 import math
+import operator
 pairs = dict() #dictionary of associations
 def initial_parser(lines):
     parser = getresult(lines)
@@ -14,6 +15,20 @@ def getresult(lines):
             minimum=int(each_word[0])
         i=i+1
         buildDict(each_word)
+    if(i<2): 
+        print "error: very few lines"
+    else:    
+        print_output(pairs)
+
+def sort_final_and_print(toPrint):
+    sorted_pairs = sorted(toPrint.items(), key=operator.itemgetter(0))
+    for i in range(len(sorted_pairs)):
+        print sorted_pairs[i][0].split("+")[0] + "," +  sorted_pairs[i][0].split("+")[1]
+
+def print_output(pairs):
+    toFilter = dict() 
+    toFilter = {k:v for (k,v) in pairs.iteritems() if v >= 3} 
+    sort_final_and_print(toFilter)
 
 def buildDict(words):
     global pairs
@@ -31,7 +46,3 @@ def buildDict(words):
                     if(reverseIndex not in pairs.keys()):
                         pairs[reverseIndex]= 1
 initial_parser(fileinput.input())
-for key in pairs:
-    if(pairs[key] >= minimum):
-        print key +":" +str(pairs[key])
-pairs={}
