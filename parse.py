@@ -23,7 +23,9 @@ def getresult(lines):
 def sort_final_and_print(toPrint):
     sorted_pairs = sorted(toPrint.items(), key=operator.itemgetter(0))
     for i in range(len(sorted_pairs)):
-        print sorted_pairs[i][0].split("+")[0] + "," +  sorted_pairs[i][0].split("+")[1]
+        final=[sorted_pairs[i][0].split("+")[0],sorted_pairs[i][0].split("+")[1]]
+        final.sort()
+        print final[0] +"," + final[1]
 
 def print_output(pairs):
     toFilter = dict() 
@@ -32,6 +34,7 @@ def print_output(pairs):
 
 def buildDict(words):
     global pairs
+    words.sort()
     for i in range(len(words)):
         for j in range(len(words)):
             if words[i] != words[j]:
