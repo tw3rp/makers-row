@@ -1,5 +1,4 @@
 import fileinput
-import hashlib
 import math
 import operator
 pairs = dict() #dictionary of associations
