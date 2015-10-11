@@ -23,8 +23,8 @@ def sort_final_and_print(toPrint):
     sorted_pairs = sorted(toPrint.items(), key=operator.itemgetter(0))
     for i in range(len(sorted_pairs)):
         final=[sorted_pairs[i][0].split("+")[0],sorted_pairs[i][0].split("+")[1]]
-        final.sort()
-        print final[0] +"," + final[1]
+        out = sorted(final, key=str.lower)
+        print out[0] +"," + out[1]
 
 def print_output(pairs):
     toFilter = dict() 
